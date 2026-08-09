@@ -1,0 +1,3 @@
+NAME                                  STATUS   ROLES           AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION                     CONTAINER-RUNTIME
+cloud-native-platform-control-plane   Ready    control-plane   3m13s   v1.29.2   172.18.0.4    <none>        Debian GNU/Linux 12 (bookworm)   6.6.87.2-microsoft-standard-WSL2   containerd://1.7.13
+cloud-native-platform-worker          Ready    <none>          2m50s   v1.29.2   172.18.0.3    <none>        Debian GNU/Linux 12 (bookworm)   6.6.87.2-microsoft-standard-WSL2   containerd://1.7.13
