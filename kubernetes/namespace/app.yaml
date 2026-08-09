@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cloud-native-app
+  labels:
+    project: cloud-native-devops-platform
+    environment: dev

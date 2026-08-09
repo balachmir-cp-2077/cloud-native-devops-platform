@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: cloud-native-app
+  namespace: cloud-native-app
+
+spec:
+  type: ClusterIP
+
+  selector:
+    app: cloud-native-app
+
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 5000
