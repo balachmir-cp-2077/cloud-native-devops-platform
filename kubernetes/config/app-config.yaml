@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloud-native-app-config
+  namespace: cloud-native-app
+
+data:
+  APP_ENV: "kubernetes"
+  LOG_LEVEL: "INFO"

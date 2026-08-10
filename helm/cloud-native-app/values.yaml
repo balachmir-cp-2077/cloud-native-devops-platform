@@ -1,0 +1,23 @@
+replicaCount: 3
+
+image:
+  repository: cloud-native-app
+  tag: v2
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 5000
+
+app:
+  environment: kubernetes
+  logLevel: INFO
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi
