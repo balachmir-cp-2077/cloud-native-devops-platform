@@ -1,4 +1,4 @@
-replicaCount: 3
+replicaCount: 2
 
 image:
   repository: cloud-native-app
@@ -9,6 +9,11 @@ service:
   type: ClusterIP
   port: 80
   targetPort: 5000
+
+ingress:
+  enabled: true
+  className: nginx
+  host: cloud-native.local
 
 app:
   environment: kubernetes
