@@ -35,17 +35,26 @@ jobs:
           pytest app/tests -v
 
   docker:
-    name: Build Docker image
+    name: Build and scan Docker image
     runs-on: ubuntu-24.04
 
     needs: test
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Build Docker image
         run: |
           docker build \
             -t cloud-native-app:${{ github.sha }} \
             ./app
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: cloud-native-app:${{ github.sha }}
+          format: table
+          exit-code: 1
+          ignore-unfixed: true
+          severity: CRITICAL,HIGH
