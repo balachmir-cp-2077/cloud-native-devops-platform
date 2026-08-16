@@ -72,6 +72,7 @@ jobs:
           severity: CRITICAL,HIGH
 
       - name: Configure AWS credentials
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: aws-actions/configure-aws-credentials@v6.2.3
         with:
           role-to-assume: arn:aws:iam::432837989123:role/GitHubActions-CloudNativePlatform-ECR
@@ -79,10 +80,12 @@ jobs:
           allowed-account-ids: "432837989123"
 
       - name: Verify AWS identity
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: |
           aws sts get-caller-identity
 
       - name: Login to Amazon ECR
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: |
           aws ecr get-login-password --region "$AWS_REGION" \
             | docker login \
@@ -91,12 +94,14 @@ jobs:
               "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
 
       - name: Tag image for ECR
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: |
           docker tag \
             cloud-native-app:${{ github.sha }} \
             "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}:${{ github.sha }}"
 
       - name: Push image to Amazon ECR
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: |
           docker push \
             "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}:${{ github.sha }}"
