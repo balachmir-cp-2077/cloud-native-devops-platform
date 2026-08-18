@@ -1,9 +1,13 @@
+
 replicaCount: 2
 
 image:
-  repository: cloud-native-app
-  tag: v2
+  repository: 432837989123.dkr.ecr.eu-central-1.amazonaws.com/cloud-native-app
+  tag: "72e35e854de83502ba9b32acdd8744cbbc324110"
   pullPolicy: IfNotPresent
+
+imagePullSecrets:
+  - name: ecr-registry-secret
 
 service:
   type: ClusterIP
