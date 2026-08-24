@@ -1,0 +1,13 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "VerifyECRImages",
+      "Effect": "Allow",
+      "Action": [
+        "ecr:DescribeImages"
+      ],
+      "Resource": "arn:aws:ecr:eu-central-1:432837989123:repository/cloud-native-app"
+    }
+  ]
+}
