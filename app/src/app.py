@@ -8,6 +8,7 @@ app = Flask(__name__)
 def home():
     return {
         "application": "Cloud Native DevOps Platform",
+        "version": "2.0.0",
         "status": "Running",
         "hostname": socket.gethostname(),
         "environment": os.getenv("APP_ENV", "development")
