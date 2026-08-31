@@ -3,7 +3,7 @@ replicaCount: 2
 
 image:
   repository: 432837989123.dkr.ecr.eu-central-1.amazonaws.com/cloud-native-app
-  tag: "3a30ab3b776a2ba59aee4c1e57ce48dc5f284c9d"
+  tag: "f2ba09deafa2022c60d681dfa102b932766215a8"
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
