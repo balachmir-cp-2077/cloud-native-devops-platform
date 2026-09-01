@@ -11,7 +11,7 @@ def test_home():
     data = response.get_json()
 
     assert data["application"] == "Cloud Native DevOps Platform"
-    assert data["version"] == "2.0.0"
+    assert data["version"] == "2.1.0"
     assert data["status"] == "Running"
 
 
