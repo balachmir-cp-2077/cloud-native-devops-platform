@@ -23,6 +23,8 @@ The application is currently running successfully as version **2.1.0**.
 
 ## Architecture
 
+![Cloud Native DevOps Platform Architecture](docs/architecture.png)
+
 ```mermaid
 flowchart LR
     A[Developer] --> B[GitHub Repository]
